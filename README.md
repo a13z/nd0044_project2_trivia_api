@@ -379,14 +379,16 @@ These are the methods and resources available in the API.
 - General:
     - Returns a random question from a category provided as a parameter in the body of the request `category` removing previous questions , if not provided, returns a random question from any category, rem and previou a new question using the submitted question, answer, difficulty and category. Returns the id of the created question, success value, total questions, and question list based on current page number to update the frontend. 
 
-- ```
+- 
+```
 curl -X POST http://localhost:5000/quizzes -H "Content-Type: application/json" -d '{
         "previous_questions": [10],
         "quiz_category": {
                 "type": "Sports",
                 "id": "6"
         }
-}'```
+}'
+```
 
 ```
 {
