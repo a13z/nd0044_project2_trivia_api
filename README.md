@@ -401,7 +401,7 @@ curl -X POST http://localhost:5000/quizzes -H "Content-Type: application/json" -
   },
   "success": true
 }
-
+```
 
 ## Error Handling
 Errors are returned as JSON objects in the following format:
