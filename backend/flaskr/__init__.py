@@ -99,6 +99,7 @@ def create_app(test_config=None):
             current_selection = paginate_questions(request, selection)
             return jsonify({
                 "success": True,
+                "deleted": question.id,
                 "questions": current_selection,
                 "total_questions": len(selection),
                 "current_category": None,
@@ -165,7 +166,6 @@ def create_app(test_config=None):
     def search_question():
       
         body = request.get_json()
-        print("Search question body", body)
         term = body.get('searchTerm', None)
 
         try:
@@ -197,9 +197,7 @@ def create_app(test_config=None):
     def get_questions_per_category(category_id):
         try:
             selection = Question.query.filter(Question.category == category_id).order_by(Question.id).all()
-            print("selection ", selection)
             current_selection = paginate_questions(request, selection)
-            print("current questions ", current_selection)
 
             if len(current_selection) == 0:
                 abort_code = 404
@@ -244,7 +242,6 @@ def create_app(test_config=None):
         quiz_category = body.get('quiz_category', {'id': "0", 'type': "click"})
         quiz_category_id = int(quiz_category['id'])
 
-        print("quizzes post", body)
         try:
             if quiz_category_id > 0:
                 if len(previous_questions) == 0:
@@ -257,7 +254,6 @@ def create_app(test_config=None):
                 else:
                     selection = Question.query.filter(Question.id.notin_(previous_questions)).order_by(Question.id).all()
 
-            print("selection ", selection)
             if len(selection) == 0:
                 return jsonify({
                     "success": True,
