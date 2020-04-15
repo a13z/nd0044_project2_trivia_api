@@ -20,8 +20,6 @@ class TriviaTestCase(unittest.TestCase):
 
 
         self.categories = {'1': "Science",'2': "Art", '3': "Geography", '4': "History", '5': "Entertainment", '6' : "Sports" }
-        # for key, value in self.categories.items():
-        #     Category(type=value).insert()
 
         self.new_question = {
             'question': 'What director, based on a book, the real world is called Oasis?',
@@ -29,8 +27,6 @@ class TriviaTestCase(unittest.TestCase):
             'difficulty': 4,
             'category': 5
         }
-
-        # Question(question=self.new_question['question'], answer=self.new_question['answer'], difficulty=self.new_question['difficulty'], category=self.new_question['category']).insert()
 
         # binds the app to the current context
         with self.app.app_context():
@@ -83,7 +79,6 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], True)
         self.assertTrue(data['total_questions'])
         self.assertEqual(len(data['questions']), 1)
-        print(data['questions'])
     
     def test_get_question_search_without_results(self):
         res = self.client().post('/questions/search', json={'searchTerm': 'ThisDoesntExist'})

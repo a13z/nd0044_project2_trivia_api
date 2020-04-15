@@ -1,0 +1,52 @@
+(udacity_fyyur) ➜  backend git:(reviewer_required_changes_suggestions) ✗ dropdb -h localhost -p 5432 --user postgres trivia_test && createdb -h localhost -p 5432 --user postgres trivia_test && psql  -h localhost -p 5432 --user postgres trivia_test < trivia.psql
+SET
+SET
+SET
+SET
+SET
+ set_config
+------------
+
+(1 row)
+
+SET
+SET
+SET
+SET
+SET
+SET
+CREATE TABLE
+ERROR:  role "caryn" does not exist
+CREATE SEQUENCE
+ERROR:  role "caryn" does not exist
+ALTER SEQUENCE
+CREATE TABLE
+ERROR:  role "caryn" does not exist
+CREATE SEQUENCE
+ERROR:  role "caryn" does not exist
+ALTER SEQUENCE
+ALTER TABLE
+ALTER TABLE
+COPY 6
+COPY 19
+ setval
+--------
+      6
+(1 row)
+
+ setval
+--------
+     23
+(1 row)
+
+ALTER TABLE
+ALTER TABLE
+ALTER TABLE
+(udacity_fyyur) ➜  backend git:(reviewer_required_changes_suggestions) ✗ python test_flaskr.py
+/usr/local/anaconda3/envs/udacity_fyyur/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py:253: SADeprecationWarning: The 'postgres' dialect name has been renamed to 'postgresql'
+  loader = self.auto_fn(name)
+................
+----------------------------------------------------------------------
+Ran 16 tests in 2.195s
+
+OK
